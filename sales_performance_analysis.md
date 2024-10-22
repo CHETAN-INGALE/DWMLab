@@ -1,7 +1,7 @@
 
 # Improving Sales Performance Analysis for a Retail Company
 
-![star&snowflake]()
+![star&snowflake](01StarAndSnowflake.drawio.svg)
 
 ## Background
 XYZ Retail is a mid-sized retail company with multiple stores across the country. Over the years, the company has accumulated a vast amount of sales data from various sources including point-of-sale (POS) systems, online sales, inventory management systems, and customer relationship management (CRM) systems. However, the data is siloed, making it difficult for the management to analyze sales performance, identify trends, and make informed decisions.
