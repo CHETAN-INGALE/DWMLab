@@ -32,5 +32,5 @@ Disadvantages:
 - Sensitive to noise and outliers.
 
 Conclusion:
-Successful implementation of Agglomerative Hierarchical clustering using WEKA tool. 
+Successful implementation of Agglomerative Hierarchical clustering using WEKA tool on customer dataset.
 
