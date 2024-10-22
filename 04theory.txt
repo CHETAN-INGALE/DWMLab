@@ -1,0 +1,28 @@
+Bayesian Classifier Theory:
+A Bayesian classifier is a probabilistic model that applies Bayes' theorem for classification tasks. It is based on the principle of using prior knowledge along with observed data to make predictions. The classifier calculates the posterior probability of a class given a set of features and assigns the class with the highest posterior probability to the instance.
+
+Bayes' Theorem:
+Bayes' theorem provides a way to update the probability estimate for a hypothesis as more evidence or information becomes available. It is mathematically expressed as:
+
+P(C|X) = (P(X|C) * P(C)) / P(X)
+
+Where:
+- P(C|X) is the posterior probability of class C given the feature set X.
+- P(X|C) is the likelihood of feature set X given class C.
+- P(C) is the prior probability of class C.
+- P(X) is the marginal probability of feature set X.
+
+Naive Bayes Classifier:
+A common implementation of the Bayesian classifier is the Naive Bayes classifier. It assumes that the features are conditionally independent given the class label, which simplifies the computation. Despite this strong independence assumption, Naive Bayes classifiers often perform well in practice.
+
+Advantages:
+- Simple to implement and computationally efficient.
+- Works well with small datasets.
+- Handles both continuous and discrete data.
+
+Disadvantages:
+- Assumes feature independence, which may not hold in real-world scenarios.
+- Requires a large amount of data to estimate probabilities accurately.
+
+Conclusion:
+The Bayesian classifier, particularly Naive Bayes Classifier offers a simple yet effective approach to classification tasks. Its efficiency & scalability make it suitable for a wide range of application.
