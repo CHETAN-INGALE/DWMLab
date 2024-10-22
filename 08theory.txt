@@ -31,3 +31,6 @@ Disadvantages:
 - Computationally intensive, especially for large datasets.
 - Sensitive to noise and outliers.
 
+Conclusion:
+Successful implementation of Agglomerative Hierarchical clustering using WEKA tool. 
+
