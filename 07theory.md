@@ -23,11 +23,4 @@ Disadvantages:
 Conclusion:
 K-means are powerful clustering algorithmss used to group similar data points. K-means is computationally efficient and works on large data sets.
 
-Steps:
-1:Explorer
-2:Select file format from arff to csv
-3: go to file location and select the file
-4: you will reach the preprocessor page
-5: go to classify then under tree choose J48
-6: click on start right click on resukt then visulazxie treee
-7: done
+
