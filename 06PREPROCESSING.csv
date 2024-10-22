@@ -1,0 +1,13 @@
+Age	Income	Gender	Education	Marital Status	Credit Score	Purchase (Y/N)
+25	35000	Male	Bachelors	Single	700	No
+34	45000	Female	Masters	Married	750	Yes
+45	50000	Male	PhD	Married	800	Yes
+28	30000	Female	Bachelors	Single	650	No
+40	60000	Male	High School	Married	770	Yes
+35	20000	Female	Bachelors	Single	550	No
+50	70000	Male	PhD	Married	820	Yes
+23	32000	Female	High School	Single	680	No
+37	52000	Male	Masters	Married	790	Yes
+48	42000	Female	PhD	Divorced	740	Yes
+33	38000	Male	Bachelors	Single	720	No
+29	46000	Female	Masters	Married	760	Yes
