@@ -35,8 +35,11 @@ Using the WEKA tool, we applied key data mining algorithms, such as classificati
 3. **File Location**: Navigate to the file location and select the dataset.
 4. **Preprocessor Page**: You will reach the preprocessor page.
 5. **Classify**: Go to **Classify**, then under **Tree**, choose **J48**.
-6. **Start**: Click on **Start**; right-click on the results, then visualize the tree.
-7. **Done**: The decision tree will be displayed for analysis.
+6. **Start**: Click on **Start**; right-click on the result, then visualize the tree.
+7. **Cluster**: Click on **Cluster** and select **SimpleKMeans**.
+8. **Start Clustering**: Click on **Start**, right-click and visualize the clusters.
+9. **Association**: Click on **Associate**, then on **Choose** and select **Filtered Association**.
+10. **Done**: The analysis will be complete.
 
 ---
 
