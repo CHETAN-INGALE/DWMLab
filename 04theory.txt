@@ -26,3 +26,12 @@ Disadvantages:
 
 Conclusion:
 The Bayesian classifier, particularly Naive Bayes Classifier offers a simple yet effective approach to classification tasks. Its efficiency & scalability make it suitable for a wide range of application.
+
+Steps:
+1:Explorer
+2:Select file format from arff to csv
+3: go to file location and select the file
+4: you will reach the preprocessor page
+5: go to classify and choose bayes then naviebayes
+6: click on start
+7: done
