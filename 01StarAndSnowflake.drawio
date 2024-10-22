@@ -1,70 +1,84 @@
-<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36" version="24.8.0">
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36 Edg/130.0.0.0" version="24.8.0">
   <diagram name="Page-1" id="fRENjOU79ll2bTRFL-tn">
-    <mxGraphModel dx="2919" dy="928" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+    <mxGraphModel dx="4146" dy="1614" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="rUiSAQAoIF4Tqrk9Y4Ku-16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.75;entryDx=0;entryDy=0;" parent="1" source="rUiSAQAoIF4Tqrk9Y4Ku-3" target="rUiSAQAoIF4Tqrk9Y4Ku-14" edge="1">
+        <mxCell id="lJpuegFRnURLpt0-I_ik-2" value="/*&#xa;1. Star Schema&#xa;Definition:&#xa;The star schema is a type of data modeling used in data warehousing that organizes data into fact and dimension tables. It is characterized by a central fact table connected to multiple dimension tables, resembling a star shape.&#xa;&#xa;&#xa;Structure:&#xa;&#xa;&#xa;Fact Table: Contains quantitative data for analysis. It includes measures (e.g., sales amount, quantity sold) and foreign keys referencing dimension tables.&#xa;Dimension Tables: Contain descriptive attributes related to the facts. These tables provide context to the data and can include information such as time, geography, product details, and customer information.&#xa;Example:&#xa;&#xa;&#xa;Fact Table: Sales (with measures like Sales Amount and Quantity Sold)&#xa;Dimension Tables: Date, Store, Product, Customer&#xa;Advantages:&#xa;&#xa;&#xa;Simplicity: Easy to understand and navigate due to a straightforward structure.&#xa;Performance: Faster query performance because fewer joins are needed; all dimensions are directly connected to the fact table.&#xa;User-Friendly: Business users can easily understand the model, which facilitates reporting and analysis.&#xa;Use Cases:&#xa;&#xa;&#xa;Best suited for simple reporting and analytical applications where speed and simplicity are paramount, such as sales analysis and operational reporting.&#xa;&#xa;&#xa;2. Snowflake Schema&#xa;Definition:&#xa;The snowflake schema is a more complex type of data modeling in data warehousing. It extends the star schema by normalizing dimension tables into multiple related tables, resembling a snowflake shape.&#xa;&#xa;&#xa;Structure:&#xa;&#xa;&#xa;Fact Table: Similar to the star schema, it contains quantitative data.&#xa;Normalized Dimension Tables: Dimension tables are broken down into related sub-tables to eliminate redundancy and improve data integrity. For example, instead of a single product table, there might be separate tables for product details, categories, and brands.&#xa;Example:&#xa;&#xa;&#xa;Fact Table: Sales&#xa;Dimension Tables:&#xa;Date (same as in star schema)&#xa;Store (with a separate Location table)&#xa;Product (with separate Category and Brand tables)&#xa;Customer (same as in star schema)&#xa;Advantages:&#xa;&#xa;&#xa;Normalization: Reduces data redundancy, which can save storage space and improve data integrity.&#xa;Flexibility: More adaptable to changes in data structure; new attributes can be added without altering the main dimension tables.&#xa;Detailed Analysis: Allows for more complex relationships and detailed analysis of hierarchies (e.g., product categories).&#xa;Use Cases:&#xa;&#xa;&#xa;More suited for complex queries and scenarios where data integrity is crucial, such as detailed customer analysis, inventory management, and situations with rapidly changing data.&#xa;*/&#xa;&#xa;&#xa;/*&#xa;Problem Statement&#xa;Title: Improving Sales Performance Analysis for a Retail Company&#xa;&#xa;&#xa;Background:&#xa;XYZ Retail is a mid-sized retail company with multiple stores across the country. Over the years, the company has accumulated a vast amount of sales data from various sources including point-of-sale (POS) systems, online sales, inventory management systems, and customer relationship management (CRM) systems. However, the data is siloed, making it difficult for the management to analyze sales performance, identify trends, and make informed decisions.&#xa;&#xa;&#xa;Objective:&#xa;The goal of this project is to build a data warehouse that consolidates all sales-related data, enabling the management team to perform comprehensive analysis and reporting. The primary objectives include:&#xa;&#xa;&#xa;Data Integration: Centralize data from multiple sources for consistent reporting.&#xa;Performance Analysis: Enable sales performance tracking over different time periods.&#xa;Trend Identification: Identify trends in sales, customer preferences, and inventory turnover.&#xa;Decision Support: Provide actionable insights to support strategic decisions.&#xa;Dimensional Modeling&#xa;To meet the objectives, we will design a dimensional model using both star and snowflake schemas.&#xa;&#xa;&#xa;1. Star Schema Design&#xa;In a star schema, the fact table is at the center, surrounded by dimension tables. This model is simpler and improves query performance.&#xa;&#xa;&#xa;Fact Table: Sales Fact&#xa;&#xa;&#xa;Attributes:&#xa;Sales_ID (Primary Key)&#xa;Date_ID (Foreign Key)&#xa;Store_ID (Foreign Key)&#xa;Product_ID (Foreign Key)&#xa;Customer_ID (Foreign Key)&#xa;Quantity_Sold&#xa;Total_Sales_Amount&#xa;Dimension Tables:&#xa;&#xa;&#xa;Date Dimension&#xa;&#xa;&#xa;Date_ID (Primary Key)&#xa;Date&#xa;Month&#xa;Quarter&#xa;Year&#xa;Day_of_Week&#xa;Store Dimension&#xa;&#xa;&#xa;Store_ID (Primary Key)&#xa;Store_Name&#xa;Location&#xa;Manager&#xa;Product Dimension&#xa;&#xa;&#xa;Product_ID (Primary Key)&#xa;Product_Name&#xa;Category&#xa;Brand&#xa;Price&#xa;Customer Dimension&#xa;&#xa;&#xa;Customer_ID (Primary Key)&#xa;Customer_Name&#xa;Email&#xa;Phone&#xa;Membership_Status&#xa;&#xa;&#xa;2. Snowflake Schema Design&#xa;In a snowflake schema, dimension tables are normalized, which reduces redundancy but can complicate queries.&#xa;&#xa;&#xa;Fact Table: Sales Fact&#xa;&#xa;&#xa;Same as in the star schema.&#xa;Dimension Tables:&#xa;&#xa;&#xa;Date Dimension (same as above)&#xa;&#xa;&#xa;Store Dimension&#xa;&#xa;&#xa;Store_ID (Primary Key)&#xa;Store_Name&#xa;Location_ID (Foreign Key)&#xa;Location Dimension&#xa;&#xa;&#xa;Location_ID (Primary Key)&#xa;City&#xa;State&#xa;Zip_Code&#xa;Product Dimension&#xa;&#xa;&#xa;Product_ID (Primary Key)&#xa;Product_Name&#xa;Category_ID (Foreign Key)&#xa;Brand_ID (Foreign Key)&#xa;Category Dimension&#xa;&#xa;&#xa;Category_ID (Primary Key)&#xa;Category_Name&#xa;Brand Dimension&#xa;&#xa;&#xa;Brand_ID (Primary Key)&#xa;Brand_Name&#xa;Customer Dimension (same as above)&#xa;&#xa;&#xa;Conclusion&#xa;By implementing a data warehouse using either a star or snowflake schema, XYZ Retail can significantly enhance its ability to analyze sales data, identify trends, and support strategic decision-making. The centralized data structure will streamline reporting processes and facilitate deeper insights into sales performance across different dimensions.&#xa;*/" style="text;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="-1160" y="830" width="1120" height="3060" as="geometry" />
+        </mxCell>
+        <mxCell id="lJpuegFRnURLpt0-I_ik-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="lJpuegFRnURLpt0-I_ik-2" target="lJpuegFRnURLpt0-I_ik-2">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="rUiSAQAoIF4Tqrk9Y4Ku-18" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="rUiSAQAoIF4Tqrk9Y4Ku-3" target="rUiSAQAoIF4Tqrk9Y4Ku-11" edge="1">
+        <mxCell id="lJpuegFRnURLpt0-I_ik-4" value="" style="group" vertex="1" connectable="0" parent="1">
+          <mxGeometry x="-1160" y="30" width="1130" height="700" as="geometry" />
+        </mxCell>
+        <mxCell id="rUiSAQAoIF4Tqrk9Y4Ku-16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.75;entryDx=0;entryDy=0;" parent="lJpuegFRnURLpt0-I_ik-4" source="rUiSAQAoIF4Tqrk9Y4Ku-3" target="rUiSAQAoIF4Tqrk9Y4Ku-14" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="rUiSAQAoIF4Tqrk9Y4Ku-28" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.75;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="rUiSAQAoIF4Tqrk9Y4Ku-3" target="rUiSAQAoIF4Tqrk9Y4Ku-26" edge="1">
+        <mxCell id="rUiSAQAoIF4Tqrk9Y4Ku-18" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="lJpuegFRnURLpt0-I_ik-4" source="rUiSAQAoIF4Tqrk9Y4Ku-3" target="rUiSAQAoIF4Tqrk9Y4Ku-11" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="rUiSAQAoIF4Tqrk9Y4Ku-31" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.75;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="rUiSAQAoIF4Tqrk9Y4Ku-3" target="rUiSAQAoIF4Tqrk9Y4Ku-29" edge="1">
+        <mxCell id="rUiSAQAoIF4Tqrk9Y4Ku-28" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.75;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" parent="lJpuegFRnURLpt0-I_ik-4" source="rUiSAQAoIF4Tqrk9Y4Ku-3" target="rUiSAQAoIF4Tqrk9Y4Ku-26" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="rUiSAQAoIF4Tqrk9Y4Ku-3" value="Fact Table&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="swimlane;whiteSpace=wrap;html=1;startSize=40;" parent="1" vertex="1">
-          <mxGeometry x="-370" y="160" width="110" height="155" as="geometry">
+        <mxCell id="rUiSAQAoIF4Tqrk9Y4Ku-31" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.75;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="lJpuegFRnURLpt0-I_ik-4" source="rUiSAQAoIF4Tqrk9Y4Ku-3" target="rUiSAQAoIF4Tqrk9Y4Ku-29" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rUiSAQAoIF4Tqrk9Y4Ku-3" value="Fact Table&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="swimlane;whiteSpace=wrap;html=1;startSize=40;" parent="lJpuegFRnURLpt0-I_ik-4" vertex="1">
+          <mxGeometry x="617.7333333333333" y="202.22222222222223" width="165.73333333333332" height="241.11111111111111" as="geometry">
             <mxRectangle x="360" y="160" width="140" height="30" as="alternateBounds" />
           </mxGeometry>
         </mxCell>
         <mxCell id="rUiSAQAoIF4Tqrk9Y4Ku-4" value="Revenue&lt;div&gt;Dealer_ID&lt;/div&gt;&lt;div&gt;Model_ID&lt;/div&gt;&lt;div&gt;Branch_iD&lt;/div&gt;&lt;div&gt;Date_ID&lt;/div&gt;&lt;div&gt;Units_Sold&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="rUiSAQAoIF4Tqrk9Y4Ku-3" vertex="1">
-          <mxGeometry x="10" y="45" width="80" height="110" as="geometry" />
+          <mxGeometry x="15.066666666666666" y="70" width="80" height="110" as="geometry" />
         </mxCell>
-        <mxCell id="rUiSAQAoIF4Tqrk9Y4Ku-11" value="Dimension Table" style="swimlane;whiteSpace=wrap;html=1;startSize=23;" parent="1" vertex="1">
-          <mxGeometry x="-140" y="40" width="100" height="120" as="geometry" />
+        <mxCell id="rUiSAQAoIF4Tqrk9Y4Ku-11" value="Dimension Table" style="swimlane;whiteSpace=wrap;html=1;startSize=23;" parent="lJpuegFRnURLpt0-I_ik-4" vertex="1">
+          <mxGeometry x="964.2666666666667" y="15.555555555555555" width="150.66666666666666" height="186.66666666666666" as="geometry" />
         </mxCell>
         <mxCell id="rUiSAQAoIF4Tqrk9Y4Ku-12" value="Date_ID&lt;div&gt;year&lt;/div&gt;&lt;div&gt;month&lt;/div&gt;&lt;div&gt;quarter&lt;/div&gt;&lt;div&gt;date&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="rUiSAQAoIF4Tqrk9Y4Ku-11" vertex="1">
-          <mxGeometry x="15" y="30" width="70" height="90" as="geometry" />
+          <mxGeometry x="22.599999999999998" y="46.666666666666664" width="70" height="90" as="geometry" />
         </mxCell>
-        <mxCell id="rUiSAQAoIF4Tqrk9Y4Ku-24" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="rUiSAQAoIF4Tqrk9Y4Ku-14" target="rUiSAQAoIF4Tqrk9Y4Ku-19" edge="1">
+        <mxCell id="rUiSAQAoIF4Tqrk9Y4Ku-24" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" parent="lJpuegFRnURLpt0-I_ik-4" source="rUiSAQAoIF4Tqrk9Y4Ku-14" target="rUiSAQAoIF4Tqrk9Y4Ku-19" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="rUiSAQAoIF4Tqrk9Y4Ku-25" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.75;exitDx=0;exitDy=0;entryX=1;entryY=0.75;entryDx=0;entryDy=0;" parent="1" source="rUiSAQAoIF4Tqrk9Y4Ku-14" target="rUiSAQAoIF4Tqrk9Y4Ku-22" edge="1">
+        <mxCell id="rUiSAQAoIF4Tqrk9Y4Ku-25" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.75;exitDx=0;exitDy=0;entryX=1;entryY=0.75;entryDx=0;entryDy=0;" parent="lJpuegFRnURLpt0-I_ik-4" source="rUiSAQAoIF4Tqrk9Y4Ku-14" target="rUiSAQAoIF4Tqrk9Y4Ku-22" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="rUiSAQAoIF4Tqrk9Y4Ku-14" value="Dimension Table" style="swimlane;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="-530" y="30" width="100" height="110" as="geometry" />
+        <mxCell id="lJpuegFRnURLpt0-I_ik-5" value="Text" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="rUiSAQAoIF4Tqrk9Y4Ku-25">
+          <mxGeometry x="0.3489" relative="1" as="geometry">
+            <mxPoint y="1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rUiSAQAoIF4Tqrk9Y4Ku-14" value="Dimension Table" style="swimlane;whiteSpace=wrap;html=1;" parent="lJpuegFRnURLpt0-I_ik-4" vertex="1">
+          <mxGeometry x="376.66666666666663" width="150.66666666666666" height="171.11111111111111" as="geometry" />
         </mxCell>
         <mxCell id="rUiSAQAoIF4Tqrk9Y4Ku-15" value="Dealer_ID&lt;div&gt;Location_ID&lt;/div&gt;&lt;div&gt;Country_ID&lt;/div&gt;&lt;div&gt;Dealer_NM&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="rUiSAQAoIF4Tqrk9Y4Ku-14" vertex="1">
-          <mxGeometry x="5" y="35" width="90" height="70" as="geometry" />
+          <mxGeometry x="7.533333333333333" y="54.44444444444444" width="90" height="70" as="geometry" />
         </mxCell>
-        <mxCell id="rUiSAQAoIF4Tqrk9Y4Ku-19" value="Dimension Table" style="swimlane;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="-770" y="60" width="100" height="80" as="geometry" />
+        <mxCell id="rUiSAQAoIF4Tqrk9Y4Ku-19" value="Dimension Table" style="swimlane;whiteSpace=wrap;html=1;" parent="lJpuegFRnURLpt0-I_ik-4" vertex="1">
+          <mxGeometry x="15.066666666666666" y="46.666666666666664" width="150.66666666666666" height="124.44444444444444" as="geometry" />
         </mxCell>
-        <mxCell id="rUiSAQAoIF4Tqrk9Y4Ku-21" value="Location&lt;div&gt;Location_ID&lt;/div&gt;&lt;div&gt;Region&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
-          <mxGeometry x="-775" y="73" width="90" height="60" as="geometry" />
+        <mxCell id="rUiSAQAoIF4Tqrk9Y4Ku-21" value="Location&lt;div&gt;Location_ID&lt;/div&gt;&lt;div&gt;Region&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="lJpuegFRnURLpt0-I_ik-4" vertex="1">
+          <mxGeometry x="7.533333333333333" y="66.88888888888889" width="90" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="rUiSAQAoIF4Tqrk9Y4Ku-22" value="Dimension Table" style="swimlane;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="-770" y="190" width="100" height="100" as="geometry" />
+        <mxCell id="rUiSAQAoIF4Tqrk9Y4Ku-22" value="Dimension Table" style="swimlane;whiteSpace=wrap;html=1;" parent="lJpuegFRnURLpt0-I_ik-4" vertex="1">
+          <mxGeometry x="15.066666666666666" y="248.88888888888889" width="150.66666666666666" height="155.55555555555557" as="geometry" />
         </mxCell>
-        <mxCell id="rUiSAQAoIF4Tqrk9Y4Ku-23" value="Country&lt;div&gt;Country_ID&lt;/div&gt;&lt;div&gt;Country_Name&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
-          <mxGeometry x="-780" y="213" width="100" height="60" as="geometry" />
+        <mxCell id="rUiSAQAoIF4Tqrk9Y4Ku-23" value="Country&lt;div&gt;Country_ID&lt;/div&gt;&lt;div&gt;Country_Name&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="lJpuegFRnURLpt0-I_ik-4" vertex="1">
+          <mxGeometry y="284.6666666666667" width="100" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="rUiSAQAoIF4Tqrk9Y4Ku-26" value="Dimension Table" style="swimlane;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="-600" y="350" width="90" height="130" as="geometry" />
+        <mxCell id="rUiSAQAoIF4Tqrk9Y4Ku-26" value="Dimension Table" style="swimlane;whiteSpace=wrap;html=1;" parent="lJpuegFRnURLpt0-I_ik-4" vertex="1">
+          <mxGeometry x="271.2" y="497.77777777777777" width="135.6" height="202.22222222222223" as="geometry" />
         </mxCell>
-        <mxCell id="rUiSAQAoIF4Tqrk9Y4Ku-27" value="Branch&lt;div&gt;Branch_ID&lt;/div&gt;&lt;div&gt;Name&lt;/div&gt;&lt;div&gt;Address&lt;/div&gt;&lt;div&gt;Country&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
-          <mxGeometry x="-600" y="378" width="80" height="90" as="geometry" />
+        <mxCell id="rUiSAQAoIF4Tqrk9Y4Ku-27" value="Branch&lt;div&gt;Branch_ID&lt;/div&gt;&lt;div&gt;Name&lt;/div&gt;&lt;div&gt;Address&lt;/div&gt;&lt;div&gt;Country&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="lJpuegFRnURLpt0-I_ik-4" vertex="1">
+          <mxGeometry x="271.2" y="541.3333333333334" width="80" height="90" as="geometry" />
         </mxCell>
-        <mxCell id="rUiSAQAoIF4Tqrk9Y4Ku-29" value="Dimesion Table" style="swimlane;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="-140" y="310" width="110" height="110" as="geometry" />
+        <mxCell id="rUiSAQAoIF4Tqrk9Y4Ku-29" value="Dimesion Table" style="swimlane;whiteSpace=wrap;html=1;" parent="lJpuegFRnURLpt0-I_ik-4" vertex="1">
+          <mxGeometry x="964.2666666666667" y="435.55555555555554" width="165.73333333333332" height="171.11111111111111" as="geometry" />
         </mxCell>
-        <mxCell id="rUiSAQAoIF4Tqrk9Y4Ku-30" value="Product&lt;div&gt;Product_ID&lt;/div&gt;&lt;div&gt;Product_Name&lt;/div&gt;&lt;div&gt;Model_ID&lt;/div&gt;&lt;div&gt;Variant_ID&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
-          <mxGeometry x="-130" y="328" width="100" height="90" as="geometry" />
+        <mxCell id="rUiSAQAoIF4Tqrk9Y4Ku-30" value="Product&lt;div&gt;Product_ID&lt;/div&gt;&lt;div&gt;Product_Name&lt;/div&gt;&lt;div&gt;Model_ID&lt;/div&gt;&lt;div&gt;Variant_ID&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="lJpuegFRnURLpt0-I_ik-4" vertex="1">
+          <mxGeometry x="979.3333333333333" y="463.55555555555554" width="100" height="90" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
