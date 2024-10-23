@@ -1,4 +1,19 @@
 import networkx as nx
+import matplotlib.pyplot as plt
+G =nx.DiGraph()
+G.add_edges_from(
+    [('a', 'b'), ('a', 'c'), ('a', 'd'), ('b', 'd'), ('b', 'e'), ('c', 'e'), ('d', 'e'), ('d', 'f'), ('e', 'f'), ('e', 'g'), ('f', 'g')]
+)
+plt.figure(figsize=(10, 10))
+nx.draw_networkx(G, with_labels=True, node_color="lightblue", edge_color="gray", node_size=500, arrowsize=20)
+hubs,auth = nx.hits(G,max_iter=5000, normalized=True)
+print(hubs,auth,"hello hub scores")
+print(hubs['a'],hubs['b'],hubs['c'],hubs['d'],hubs['e'],hubs['f'],hubs['g'])
+print ("authority scores",auth)
+plt.show()
+
+
+import networkx as nx
 G=nx.barabasi_albert_graph(60,41)
 pr=nx.pagerank(G,0.4)
 print(pr)
