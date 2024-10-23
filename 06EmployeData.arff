@@ -1,0 +1,21 @@
+@relation employee
+@attribute id numeric
+@attribute age numeric
+@attribute salary numeric
+@attribute department {HR,IT,Sales,Marketing}
+@attribute years_with_company numeric
+@attribute education {HighSchool,Bachelors,Masters,PhD}
+@attribute promotion {Yes,No}
+@data
+1,25,50000,HR,2,Bachelors,No
+2,30,60000,IT,3,Masters,Yes
+3,45,85000,Sales,8,Bachelors,No
+4,28,55000,Marketing,4,Bachelors,No
+5,35,70000,IT,6,Masters,Yes
+6,40,75000,HR,10,PhD,No
+7,23,48000,Sales,1,HighSchool,No
+8,38,72000,Marketing,9,Masters,Yes
+9,50,90000,HR,15,PhD,Yes
+10,29,52000,Sales,3,HighSchool,No
+11,32,68000,Marketing,7,Masters,Yes
+12,41,78000,IT,12,PhD,Yes
