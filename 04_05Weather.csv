@@ -1,0 +1,16 @@
+Weather,TEMP,HUMIDITY,WINDY,CLASS
+Sunny,75,70,yes,Don’t Play
+Sunny,70,78,yes,Don’t Play
+Sunny,73,79,no,Don’t Play
+Sunny,71,75,no,Play
+Sunny,79,72,no,Don’t Play
+Sunny,72,75,no,Don’t Play
+Overcast,50,80,yes,Play
+Overcast,51,81,yes,Play
+Overcast,54,87,yes,Play
+Overcast,43,88,yes,Play
+Overcast,42,85,no,Don’t Play
+Rain,20,90,yes,Play
+Rain,21,90,yes,Play
+Rain,25,90,yes,Play
+Rain,27,90,yes,Play
